@@ -1,0 +1,112 @@
+[GIN-debug] [WARNING] Creating an Engine instance with the Logger and Recovery middleware already attached.
+
+[GIN-debug] [WARNING] Running in "debug" mode. Switch to "release" mode in production.
+ - using env:	export GIN_MODE=release
+ - using code:	gin.SetMode(gin.ReleaseMode)
+
+[GIN-debug] GET    /api/ping                 --> main.main.func1 (5 handlers)
+[GIN-debug] GET    /api/wx                   --> main.(*Service).GetWxSign-fm (5 handlers)
+[GIN-debug] POST   /api/registe              --> main.(*Service).PostRegister-fm (5 handlers)
+[GIN-debug] GET    /api/stat                 --> main.(*Service).GetStat-fm (5 handlers)
+[GIN-debug] GET    /api/all                  --> main.(*Service).GetAll-fm (5 handlers)
+[GIN-debug] GET    /api/delete/all/done      --> main.(*Service).DeleteAll-fm (5 handlers)
+[GIN-debug] Listening and serving HTTP on 0.0.0.0:8090
+[GIN-debug] [WARNING] Creating an Engine instance with the Logger and Recovery middleware already attached.
+
+[GIN-debug] [WARNING] Running in "debug" mode. Switch to "release" mode in production.
+ - using env:	export GIN_MODE=release
+ - using code:	gin.SetMode(gin.ReleaseMode)
+
+[GIN-debug] GET    /api/ping                 --> main.main.func1 (5 handlers)
+[GIN-debug] GET    /api/wx                   --> main.(*Service).GetWxSign-fm (5 handlers)
+[GIN-debug] POST   /api/registe              --> main.(*Service).PostRegister-fm (5 handlers)
+[GIN-debug] GET    /api/stat                 --> main.(*Service).GetStat-fm (5 handlers)
+[GIN-debug] GET    /api/all                  --> main.(*Service).GetAll-fm (5 handlers)
+[GIN-debug] GET    /api/delete/all/done      --> main.(*Service).DeleteAll-fm (5 handlers)
+[GIN-debug] Listening and serving HTTP on 0.0.0.0:8090
+2018/11/09 10:27:48 [ERROR][UNKNOWN] main.go:305: main.JSApiTicket{ErrCode:41001, ErrMsg:"access_token missing hint: [5Kw5fa0468vr29!]", Ticket:"", ExpiresIn:0}
+[GIN] 2018/11/09 - 10:27:48 | 403 |  142.060886ms |       127.0.0.1 | GET      /api/wx?url=http://hsstar.geedooweb.com/zhongou/
+EMBA2016-SZ1 4
+EMBA2015-SZ1 2
+EMBA2016-SZ2 2
+[GIN] 2018/11/29 - 15:33:45 | 200 |   77.101296ms |       127.0.0.1 | GET      /api/stat?type=1
+2018/11/29 15:33:46 [ERROR][UNKNOWN] main.go:305: main.JSApiTicket{ErrCode:41001, ErrMsg:"access_token missing hint: [whIXaA0826vr47!]", Ticket:"", ExpiresIn:0}
+[GIN] 2018/11/29 - 15:33:46 | 403 |  156.611306ms |       127.0.0.1 | GET      /api/wx?url=http://hsstar.geedooweb.com/zhongou/form/canyu.html
+EMBA2016-SZ1 4
+EMBA2015-SZ1 2
+EMBA2016-SZ2 2
+[GIN] 2018/11/29 - 15:37:29 | 200 |     497.546µs |       127.0.0.1 | GET      /api/stat?type=1
+2018/11/29 15:37:29 [ERROR][UNKNOWN] main.go:305: main.JSApiTicket{ErrCode:41001, ErrMsg:"access_token missing hint: [2cyoiA0049vr44!]", Ticket:"", ExpiresIn:0}
+[GIN] 2018/11/29 - 15:37:29 | 403 |   99.140159ms |       127.0.0.1 | GET      /api/wx?url=http://hsstar.geedooweb.com/zhongou/form/canyu.html
+2018/11/29 15:37:46 [ERROR][UNKNOWN] main.go:305: main.JSApiTicket{ErrCode:41001, ErrMsg:"access_token missing hint: [tn5jGa0066vr69!]", Ticket:"", ExpiresIn:0}
+[GIN] 2018/11/29 - 15:37:46 | 403 |   57.783507ms |       127.0.0.1 | GET      /api/wx?url=http://hsstar.geedooweb.com/zhongou/form/canyu.html
+EMBA2016-SZ1 4
+EMBA2015-SZ1 2
+EMBA2016-SZ2 2
+[GIN] 2018/11/29 - 15:37:46 | 200 |     498.361µs |       127.0.0.1 | GET      /api/stat?type=1
+EMBA2016-SZ1 4
+EMBA2015-SZ1 2
+EMBA2016-SZ2 2
+[GIN] 2018/11/29 - 15:50:30 | 200 |     357.792µs |  116.246.20.252 | GET      /api/stat?type=1
+2018/11/29 15:50:30 [ERROR][UNKNOWN] main.go:305: main.JSApiTicket{ErrCode:41001, ErrMsg:"access_token missing hint: [.LDtnA0830vr47!]", Ticket:"", ExpiresIn:0}
+[GIN] 2018/11/29 - 15:50:30 | 403 |   95.724085ms |  116.246.20.252 | GET      /api/wx?url=http://hsstar.geedooweb.com/zhongou/form/canyu.html
+EMBA2016-SZ1 4
+EMBA2015-SZ1 2
+EMBA2016-SZ2 2
+[GIN] 2018/11/29 - 15:50:37 | 200 |      405.66µs |  58.247.146.122 | GET      /api/stat?type=1
+2018/11/29 15:50:37 [ERROR][UNKNOWN] main.go:305: main.JSApiTicket{ErrCode:41001, ErrMsg:"access_token missing hint: [Ngx3qa0837vr58!]", Ticket:"", ExpiresIn:0}
+[GIN] 2018/11/29 - 15:50:37 | 403 |   62.845924ms |  58.247.146.122 | GET      /api/wx?url=http://hsstar.geedooweb.com/zhongou/form/canyu.html
+EMBA2016-SZ1 4
+EMBA2015-SZ1 2
+EMBA2016-SZ2 2
+[GIN] 2018/11/29 - 16:00:10 | 200 |     308.691µs |       127.0.0.1 | GET      /api/stat?type=1
+2018/11/29 16:00:10 [ERROR][UNKNOWN] main.go:305: main.JSApiTicket{ErrCode:41001, ErrMsg:"access_token missing hint: [wEvXma0410vr45!]", Ticket:"", ExpiresIn:0}
+[GIN] 2018/11/29 - 16:00:10 | 403 |  108.029057ms |       127.0.0.1 | GET      /api/wx?url=http://hsstar.geedooweb.com/zhongou/form/canyu.html
+EMBA2016-SZ1 4
+EMBA2015-SZ1 2
+EMBA2016-SZ2 2
+[GIN] 2018/11/29 - 16:16:43 | 200 |     318.146µs |  58.247.146.122 | GET      /api/stat?type=1
+2018/11/29 16:16:43 [ERROR][UNKNOWN] main.go:305: main.JSApiTicket{ErrCode:41001, ErrMsg:"access_token missing hint: [BTHbra0403vr29!]", Ticket:"", ExpiresIn:0}
+[GIN] 2018/11/29 - 16:16:43 | 403 |   97.096543ms |  58.247.146.122 | GET      /api/wx?url=http://hsstar.geedooweb.com/zhongou/form/canyu.html
+EMBA2016-SZ1 4
+EMBA2015-SZ1 2
+EMBA2016-SZ2 2
+[GIN] 2018/11/29 - 16:17:02 | 200 |     334.656µs |  58.247.146.122 | GET      /api/stat?type=1
+2018/11/29 16:17:02 [ERROR][UNKNOWN] main.go:305: main.JSApiTicket{ErrCode:41001, ErrMsg:"access_token missing hint: [lYRlda0422vr43!]", Ticket:"", ExpiresIn:0}
+[GIN] 2018/11/29 - 16:17:02 | 403 |   53.409175ms |  58.247.146.122 | GET      /api/wx?url=http://hsstar.geedooweb.com/zhongou/form/canyu.html
+EMBA2016-SZ1 4
+EMBA2015-SZ1 2
+EMBA2016-SZ2 2
+[GIN] 2018/12/07 - 20:32:15 | 200 |   50.430374ms |       127.0.0.1 | GET      /api/stat?type=1
+2018/12/07 20:32:15 [ERROR][UNKNOWN] main.go:305: main.JSApiTicket{ErrCode:41001, ErrMsg:"access_token missing hint: [EuLEMA0935vr44!]", Ticket:"", ExpiresIn:0}
+[GIN] 2018/12/07 - 20:32:15 | 403 |  152.606562ms |       127.0.0.1 | GET      /api/wx?url=http://hsstar.geedooweb.com/zhongou/form/canyu.html
+EMBA2016-SZ1 4
+EMBA2015-SZ1 2
+EMBA2016-SZ2 2
+[GIN] 2018/12/07 - 20:35:23 | 200 |     446.276µs |       127.0.0.1 | GET      /api/stat?type=1
+2018/12/07 20:35:23 [ERROR][UNKNOWN] main.go:305: main.JSApiTicket{ErrCode:41001, ErrMsg:"access_token missing hint: [yyxtaA0123vr44!]", Ticket:"", ExpiresIn:0}
+[GIN] 2018/12/07 - 20:35:23 | 403 |  107.400352ms |       127.0.0.1 | GET      /api/wx?url=http://hsstar.geedooweb.com/zhongou/form/canyu.html
+2018/12/07 20:36:21 [ERROR][UNKNOWN] main.go:305: main.JSApiTicket{ErrCode:41001, ErrMsg:"access_token missing hint: [nG34xa0181vr45!]", Ticket:"", ExpiresIn:0}
+[GIN] 2018/12/07 - 20:36:21 | 403 |   151.35212ms |       127.0.0.1 | GET      /api/wx?url=http://hsstar.geedooweb.com/zhongou/form/canyu.html
+EMBA2016-SZ1 4
+EMBA2015-SZ1 2
+EMBA2016-SZ2 2
+[GIN] 2018/12/07 - 20:36:21 | 200 |     361.183µs |       127.0.0.1 | GET      /api/stat?type=1
+EMBA2016-SZ1 4
+EMBA2015-SZ1 2
+EMBA2016-SZ2 2
+[GIN] 2018/12/07 - 20:37:23 | 200 |     327.007µs |       127.0.0.1 | GET      /api/stat?type=1
+2018/12/07 20:37:23 [ERROR][UNKNOWN] main.go:305: main.JSApiTicket{ErrCode:41001, ErrMsg:"access_token missing hint: [n7RjWa0243vr60!]", Ticket:"", ExpiresIn:0}
+[GIN] 2018/12/07 - 20:37:23 | 403 |  118.742594ms |       127.0.0.1 | GET      /api/wx?url=http://hsstar.geedooweb.com/zhongou/form/canyu.html
+EMBA2016-SZ1 4
+EMBA2015-SZ1 2
+EMBA2016-SZ2 2
+[GIN] 2018/12/12 - 18:57:51 | 200 |     399.256µs |       127.0.0.1 | GET      /api/stat?type=1
+2018/12/12 18:57:51 [ERROR][UNKNOWN] main.go:305: main.JSApiTicket{ErrCode:41001, ErrMsg:"access_token missing hint: [_WAmpa0271vr31!]", Ticket:"", ExpiresIn:0}
+[GIN] 2018/12/12 - 18:57:51 | 403 |   94.990627ms |       127.0.0.1 | GET      /api/wx?url=http://hsstar.geedooweb.com/zhongou/form/canyu.html
+EMBA2016-SZ1 4
+EMBA2015-SZ1 2
+EMBA2016-SZ2 2
+[GIN] 2018/12/12 - 18:58:34 | 200 |     297.989µs |       127.0.0.1 | GET      /api/stat?type=1
+2018/12/12 18:58:35 [ERROR][UNKNOWN] main.go:305: main.JSApiTicket{ErrCode:41001, ErrMsg:"access_token missing hint: [L2..bA0315vr45!]", Ticket:"", ExpiresIn:0}
+[GIN] 2018/12/12 - 18:58:35 | 403 |  116.742817ms |       127.0.0.1 | GET      /api/wx?url=http://hsstar.geedooweb.com/zhongou/form/canyu.html

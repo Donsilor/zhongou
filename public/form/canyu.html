@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="renderer" content="webkit">
+	<title>中欧华南最佳推荐人活动</title>
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="css/css.css">
+    <style>
+        a#playMusic{ display:block; position: absolute; width:30px; height:25px; top:12px; right:12px; z-index:99999;}
+        a#playMusic img{ width:100%;}
+    </style>
+    <script>
+        var flag = window.sessionStorage.getItem("opened");
+        if (flag == undefined || flag!='1') {
+            window.location.href = "/index.html"
+        }
+    </script>
+</head>
+<body>
+<div class="bk">
+    <div class="logo"><img src="images/logo1.png"><a class="bgmBtn bgmPlay"></a ></div>
+    <div class="xy"><img src="images/logo.png"></div>
+    <div class="yw">因为认真, 选择中欧<br>因为创新, 选择深圳</div>
+    <div class="btn"><a href="tijiao.html">我要推荐，为班级助力</a></div>
+    <div class="bd"><a href="javascript:;" id="bandanAlert">查看<br>魅力榜单</a></div>
+    <div class="prompt"><span># </span>每一个你，对中欧都很重要 <span> #</span></div>
+    <h3><a href="javascript:;" id="rankingAlert">活动规则&gt;&gt;</a></h3>
+</div>
+<!-- 活动规则 -->
+<div class="ranking guize" id="ranking">
+    <a href="javascript:;" class="closeBtn"></a>
+    <div class="text">
+        <h6>活动规则：</h6>
+        <p>华南是中国智造最核心经济圈，她的缔造有你有我也有 <span>“Ta”欢迎各位校友/同学推荐您身边重要的“Ta”加入中欧EMBA大家庭。</span></p>
+        <div class="rule">
+            <p class="clf"><span>1、</span><span>以中欧深圳EMBA班级为单位，开启寻找身边对你我而言重要的人。</span></p>
+            <p class="clf"> <span>2、</span><span>凡在活动期限内，推荐最多的班级可获得中欧华南基石奖，推荐最多的个人可获得中欧华南领航奖。获胜班级及个人将获得课程奖励。</span></p>
+            <p class="clf">
+                <span>3、</span><span>活动时间：2018年2月1日-2018年3月10日。</span>
+            </p>
+        </div>
+    </div>
+</div>
+<!-- 排行榜 -->
+<div class="ranking bandan" id="bandan" style=" display:block;">
+    <a href="javascript:;" class="closeBtn"></a>
+    <div class="text">
+        <div class="title">魅力值排行榜</div>
+        <div class="ph_table"><a id="classPaihang" href="javascript:paihang(1)" class="active">班级排行</a>
+            <a id="personalPaihang" href="javascript:paihang(2)">个人排行</a></div>
+        <ul id="paihang">
+            <li class="clf">
+                <div id="r1" class="dv1">班级名称</div>
+                <div id="r2" class="dv1">魅力值</div>
+            </li>
+        </ul>
+    </div>
+</div>
+
+<!--------------------------------------------------------------背景音乐播放-------------------------------------------------------------------------------------->
+<audio id="music" src="sound/music.mp3"  loop="loop">你的浏览器不支持audio标签</audio>
+<a href="javascript:playPause();" id="playMusic"><img src="images/bgm_on.png" id="music_btn"></a>
+<script src="jquery.js"></script>
+<script>
+    function playPause() {
+        var music = document.getElementById('music');
+        var music_btn = document.getElementById('music_btn');
+        if (music.paused){
+            music.play();
+            music_btn.src = 'images/bgm_on.png';
+        }
+        else{
+            music.pause();
+            music_btn.src = 'images/bgm_off.png';
+        }
+    }
+    document.addEventListener('DOMContentLoaded', function () {
+        function audioAutoPlay() {
+            var music = document.getElementById('music');
+            music.play();
+            document.addEventListener("WeixinJSBridgeReady", function () {
+                music.play();
+            }, false);
+        }
+        audioAutoPlay();
+
+    });
+</script>
+
+<script>
+	function paihang(type) {
+        if (type==1) {
+            document.getElementById("classPaihang").setAttribute("class", "active");
+            document.getElementById("personalPaihang").setAttribute("class", "");
+            document.getElementById("r1").innerHTML = "班级名称";
+
+        }
+        if (type==2) {
+            document.getElementById("classPaihang").setAttribute("class", "");
+            document.getElementById("personalPaihang").setAttribute("class", "active");
+            document.getElementById("r1").innerHTML = "姓名";
+        }
+        $.ajax({
+            type: 'get',
+            url: '/api/stat?type=' + type,
+        }).done(function (data) {
+            var parent = document.getElementById('paihang');
+			$("li#removeId").remove();
+            for (var i in data) {
+				var d = data[i]
+                var li = document.createElement("li");
+                li.setAttribute("class", "clf");
+                li.setAttribute("id", "removeId");
+                //添加 div
+                var div = document.createElement("div");
+                //设置 div 属性，如 id
+                div.setAttribute("class", "dv1");
+                var span = document.createElement("span");
+                span.innerHTML = d.key
+                div.appendChild(span)
+
+                var div2 = document.createElement("div");
+                div2.setAttribute("class", "dv2");
+                div2.innerHTML = d.value
+
+                li.appendChild(div)
+                li.appendChild(div2)
+                parent.appendChild(li);
+            }
+        }).fail(function (error) {
+            console.error(error);
+        })
+	}
+	paihang(1);
+</script>
+
+<script>
+    //表单弹窗
+    var formAlert = $('#formAlert');
+    var formDiv = $('#formDiv');
+    var formDivClose = $('.formDiv>.closeBtn');
+    formAlert.on('click', function(){
+        formDiv.show();
+    });
+    formDivClose.on('click', function(){
+        formDiv.hide();
+    });
+
+    //规则弹窗
+    var rankingAlert = $('#rankingAlert');
+    var ranking = $('#ranking');
+    var guizeClose = $('.guize>.closeBtn');
+    rankingAlert.on('click', function(){
+        ranking.show();
+    });
+    guizeClose.on('click', function(){
+        ranking.hide();
+    });
+
+    //榜单弹窗
+    var bandanAlert = $('#bandanAlert');
+    var bandan = $('#bandan');
+    var bandanClose = $('.bandan>.closeBtn');
+    bandanAlert.on('click', function(){
+		paihang(1);
+        bandan.show();
+    });
+    bandanClose.on('click', function(){
+        bandan.hide();
+    });
+
+</script>
+</body>
+</html>

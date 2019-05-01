@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="renderer" content="webkit">
+	<title>中欧华南最佳推荐人活动</title>
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="css/css.css">
+    <style>
+        a#playMusic{ display:block; position: absolute; width:30px; height:25px; top:12px; right:12px; z-index:99999;}
+        a#playMusic img{ width:100%;}
+    </style>
+    <script>
+        var flag = window.sessionStorage.getItem("opened");
+        if (flag == undefined || flag!='1') {
+            window.location.href = "/index.html"
+        }
+    </script>
+</head>
+<body>
+<div class="bk">
+    <div class="logo"><img src="images/logo1.png"><a class="bgmBtn bgmPlay"></a ></div>
+    <div class="xy"><img src="images/logo.png"></div>
+    <!-- 表单 -->
+<form action="#" class="formDiv" id="formDiv">
+    <a href="javascript:;" class="closeBtn"></a>
+    <div class="text">
+        <div class="optionDiv clf">
+            <div class="fl">
+                <p>推荐人</p>
+                <input type="text" name="tjName" value="" placeholder="">
+            </div>
+            <div class="fr">
+                <p>所在班级</p>
+                <select title="" name="classRoom">
+                    <option value="EMBA2005-SZ">EMBA2005-SZ</option>
+                    <option value="EMBA2006-SZ">EMBA2006-SZ</option>
+                    <option value="EMBA2007-SZ">EMBA2007-SZ</option>
+                    <option value="EMBA2008-SZ">EMBA2008-SZ</option>
+                    <option value="EMBA2009-SZ1">EMBA2009-SZ1</option>
+                    <option value="EMBA2009-SZ2">EMBA2009-SZ2</option>
+                    <option value="EMBA2010-SZ">EMBA2010-SZ</option>
+                    <option value="EMBA2011-SZ1">EMBA2011-SZ1</option>
+                    <option value="EMBA2011-SZ2">EMBA2011-SZ2</option>
+                    <option value="EMBA2012-SZ1">EMBA2012-SZ1</option>
+                    <option value="EMBA2012-SZ2">EMBA2012-SZ2</option>
+                    <option value="EMBA2013-SZ1">EMAB2013-SZ1</option>
+                    <option value="EMBA2013-SZ2">EMBA2013-SZ2</option>
+                    <option value="EMBA2014-SZ1">EMBA2014-SZ1</option>
+                    <option value="EMBA2014-SZ2">EMBA2014-SZ2</option>
+                    <option value="EMBA2015-SZ1">EMBA2015-SZ1</option>
+                    <option value="EMBA2015-SZ2">EMBA2015-SZ2</option>
+                    <option value="EMBA2016-SZ1">EMBA2016-SZ1</option>
+                    <option value="EMBA2016-SZ2">EMBA2016-SZ2</option>
+                    <option value="EMBA2017-SZ1">EMBA2017-SZ1</option>
+                    <option value="EMBA2017-SZ2">EMBA2017-SZ2</option>
+                </select>
+            </div>
+        </div>
+        <h2>被推荐人信息</h2>
+        <div class="infoDiv clf">
+            <div class="item">
+                <p>姓名</p>
+                <input type="text" name="name" title="" value="">
+            </div>
+            <div class="item">
+                <p>职位</p>
+                <input type="text" name="title" title="" value="">
+            </div>
+            <div class="item">
+                <p>联系电话</p>
+                <input type="text" name="phone" title="" value="">
+            </div>
+            <div class="item">
+                <p>所在公司</p>
+                <input type="text" name="co" title="" value="">
+            </div>
+        </div>
+        <button>提交</button>
+    </div>
+</form>
+</div>
+
+<!--------------------------------------------------------------背景音乐播放-------------------------------------------------------------------------------------->
+<audio id="music" src="sound/music.mp3"  loop="loop">你的浏览器不支持audio标签</audio>
+<a href="javascript:playPause();" id="playMusic"><img src="images/bgm_on.png" id="music_btn"></a>
+<script src="jquery.js"></script>
+<script>
+    function playPause() {
+        var music = document.getElementById('music');
+        var music_btn = document.getElementById('music_btn');
+        if (music.paused){
+            music.play();
+            music_btn.src = 'images/bgm_on.png';
+        }
+        else{
+            music.pause();
+            music_btn.src = 'images/bgm_off.png';
+        }
+    }
+    document.addEventListener('DOMContentLoaded', function () {
+        function audioAutoPlay() {
+            var music = document.getElementById('music');
+            music.play();
+            document.addEventListener("WeixinJSBridgeReady", function () {
+                music.play();
+            }, false);
+        }
+        audioAutoPlay();
+
+    });
+</script>
+
+
+<script>
+    //表单弹窗
+    var formAlert = $('#formAlert');
+    var formDiv = $('#formDiv');
+    var formDivClose = $('.formDiv>.closeBtn');
+    formAlert.on('click', function(){
+        formDiv.show();
+    });
+    formDivClose.on('click', function(){
+		window.location.href="canyu.html";
+    });
+
+
+
+</script>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        $("form").submit(function (e) {
+            e.preventDefault();
+            const req = {
+                tjName: e.target.tjName.value,
+                classRoom: e.target.classRoom.value,
+                name: e.target.name.value,
+                title: e.target.title.value,
+                phone: e.target.phone.value,
+                co: e.target.co.value
+            }
+            console.log(req)
+
+            $.ajax({
+                type: 'POST',
+                url: "/api/registe",
+                data: JSON.stringify(req),
+                contentType: "application/json",
+                dataType: 'json'
+            }).done(function (data) {
+				window.location.href="canyu.html";
+            }).fail(function (error) {
+                console.error(error);
+            })
+        });
+    });
+</script>
+</body>
+</html>
